@@ -22,6 +22,23 @@ export default function Home() {
     //console.log(data)
 
   }
+  const stop= async () => {
+    const res =await fetch('https://e2d2b65d-8140-4408-9386-2d53226800eb.webhook.fc.azure-automation.net/webhooks?token=Xb7jqHwlXLEi0GXDj539A6vs3%2fx3oo0Fcr%2bEANn6OLs%3d', {
+       method: 'POST',
+       mode:'no-cors',
+       headers: {
+         'Content-Type': 'application/json',
+ 
+       },
+     })
+     .then(response => console.log('Success:', response))
+ .catch(error => console.error('Error:', error));
+     
+    // const data =await res.json();
+     //console.log(data)
+ 
+   }
+ 
   return (
     <div className="container">
       <Head>
@@ -36,7 +53,7 @@ export default function Home() {
 
         <div className="grid">
         <button className="card" onClick={start} >Start</button>
-        <button className="card" >Stop</button>
+        <button className="card" onCLick={stop}>Stop</button>
 
           <a href="https://nextjs.org/docs" className="card">
             <h3>Documentation &rarr;</h3>
