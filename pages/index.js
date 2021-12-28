@@ -6,18 +6,18 @@ export default function Home() {
       method: 'POST',
       mode:'no-cors',
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Request-Method': '*',
-        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-        'mode': 'no-cors' ,
-        'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+        'Accept': 'application/json',
 
       },
     })
-    .then(response => console.log('Success:', response))
-.catch(error => console.error('Error:', error));
-    
+    .then(response => response.json())
+    .then((data) => {
+    console.log('Success:', data);
+    })
+    .catch((error) => {
+    console.error('Error:', error);
+    });
+
    // const data =await res.json();
     //console.log(data)
 
@@ -31,10 +31,14 @@ export default function Home() {
  
        },
      })
-     .then(response => console.log('Success:', response))
- .catch(error => console.error('Error:', error));
-     
-    // const data =await res.json();
+     .then(response => response.json())
+     .then((data) => {
+     console.log('Success:', data);
+     })
+     .catch((error) => {
+     console.error('Error:', error);
+     });
+ // const data =await res.json();
      //console.log(data)
  
    }
@@ -53,7 +57,7 @@ export default function Home() {
 
         <div className="grid">
         <button className="card" onClick={start} >Start</button>
-        <button className="card" onCLick={stop}>Stop</button>
+        <button className="card" onClick={stop}>Stop</button>
 
           <a href="https://nextjs.org/docs" className="card">
             <h3>Documentation &rarr;</h3>
